@@ -18,6 +18,9 @@ from langchain.pydantic_v1 import BaseModel, Field
 from langchain_core.messages import BaseMessage
 from langserve import add_routes
 
+from dotenv import load_dotenv
+load_dotenv()
+
 # 1. Load Retriever
 loader = WebBaseLoader("https://docs.smith.langchain.com/overview")
 docs = loader.load()
@@ -76,4 +79,4 @@ add_routes(
 if __name__ == "__main__":
     import uvicorn
 
-    uvicorn.run(app, host="localhost", port=8000)
+    uvicorn.run(app, host="localhost", port=8080)
